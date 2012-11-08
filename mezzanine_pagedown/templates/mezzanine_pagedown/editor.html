@@ -1,0 +1,15 @@
+<div class="wmd-wrapper">
+  <div class="wmd-panel">
+    <div id="wmd-button-bar-{{ id }}"></div>
+    <textarea id="wmd-input-{{ id }}" class="wmd-input" {{ final_attrs|safe }}>{{ value }}</textarea>
+  </div>
+  <div id="wmd-preview-{{ id }}" class="wmd-panel wmd-preview"></div>
+  <script type="text/javascript">
+    (function () {
+    var converter_{{ id }} = Markdown.getSanitizingConverter();
+    var editor_{{ id }} = new Markdown.Editor(converter_{{ id }}, "-{{ id }}");
+    editor_{{ id }}.hooks.set("insertImageDialog", browseMediaLibrary);
+    editor_{{ id }}.run();
+    })();
+  </script>
+</div>
