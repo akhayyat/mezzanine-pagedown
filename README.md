@@ -105,8 +105,9 @@ How to Use
         hg clone https://bitbucket.org/akhayyat/mezzanine-pagedown
         pip install -e mezzanine-pagedown
 
- 2. Install the app in your Mezzanine project by adding `pagedown` to
-    the list of `INSTALLED_APPS` in your project's `settings.py`.
+ 2. Install the app in your Mezzanine project by adding
+    `mezzanine_pagedown` to the list of `INSTALLED_APPS` in your
+    project's `settings.py`.
 
  3. Configure Mezzanine to use one of the provided widgets and filters
     for its rich text fields.
