@@ -103,7 +103,12 @@ How to Use
  1. Get and install the package:
 
         hg clone https://bitbucket.org/akhayyat/mezzanine-pagedown
-        pip install -e mezzanine-pagedown
+        pip install ./mezzanine-pagedown/
+
+    At this time, a recent checkout of Mezzanine is required for
+    mezzanine-pagedown to work properly. In particular, this commit is
+    required:  
+    https://bitbucket.org/stephenmcd/mezzanine/commits/377c50c8aec50d969c5d7696d5e01f21b8df3d01
 
  2. Install the app in your Mezzanine project by adding
     `mezzanine_pagedown` to the list of `INSTALLED_APPS` in your
