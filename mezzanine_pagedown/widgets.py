@@ -14,13 +14,13 @@ class PageDownWidget(forms.Textarea):
     class Media:
         css = {'all': (
                 'mezzanine_pagedown/css/pagedown.css',
-                'mezzanine_pagedown/css/smoothness/jquery-ui-1.9.1.custom.min.css',)}
+                'mezzanine/css/smoothness/jquery-ui-1.9.1.custom.min.css',)}
         js = ('mezzanine_pagedown/pagedown/Markdown.Converter.js',
               'mezzanine_pagedown/pagedown/Markdown.Sanitizer.js',
               'mezzanine_pagedown/pagedown/Markdown.Editor.js',
               'mezzanine/js/%s' % settings.JQUERY_FILENAME,
-              'mezzanine_pagedown/js/jquery-ui-1.9.1.custom.min.js',
-              'mezzanine_pagedown/js/pagedown.js',        )
+              'mezzanine/js/jquery-ui-1.9.1.custom.min.js',
+              'filebrowser/js/filebrowser-popup.js',)
 
     def __init__(self, template=None, *args, **kwargs):
         self.template = template or 'mezzanine_pagedown/editor.html'

@@ -9,7 +9,11 @@ setup(
     author_email = "akhayyat@gmail.com",
     license = "BSD",
     url = "https://bitbucket.org/akhayyat/mezzanine-pagedown",
-    install_requires=("setuptools", "mezzanine", "markdown",),
+    install_requires=(
+        "setuptools",
+        "filebrowser_safe >= 0.2.13",
+        "mezzanine",
+        "markdown",),
     packages = [
         "mezzanine_pagedown",
     ],
@@ -21,7 +25,6 @@ setup(
             "static/mezzanine_pagedown/pagedown/Markdown.Editor.js",
             "static/mezzanine_pagedown/pagedown/wmd-buttons.png",
             "static/mezzanine_pagedown/css/*",
-            "static/mezzanine_pagedown/js/*",
         ]
     },
     classifiers=[
