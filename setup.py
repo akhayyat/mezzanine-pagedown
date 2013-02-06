@@ -1,10 +1,17 @@
 from distutils.core import setup
 
+import os
+if os.path.exists("README.txt"):
+    readme = open("README.txt")
+else:
+    print "Warning: using markdown README"
+    readme = open("README.md")
+
 setup(
     name = "mezzanine-pagedown",
     version = "0.1",
     description = "PageDown rich text widget for Mezzanine",
-    long_description = open("README.md").read(),
+    long_description = readme.read(),
     author = "Ahmad Khayyat",
     author_email = "akhayyat@gmail.com",
     license = "BSD",
