@@ -12,7 +12,7 @@ setup(
     install_requires=(
         "setuptools",
         "filebrowser_safe >= 0.2.13",
-        "mezzanine",
+        "mezzanine >= 1.3.0",
         "markdown",),
     packages = [
         "mezzanine_pagedown",
@@ -28,11 +28,12 @@ setup(
         ]
     },
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
+        "Programming Language :: JavaScript",
         "Framework :: Django",
     ],
 )
