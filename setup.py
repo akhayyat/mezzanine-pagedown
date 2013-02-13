@@ -31,6 +31,7 @@ setup(
             "static/mezzanine_pagedown/pagedown/Markdown.Sanitizer.js",
             "static/mezzanine_pagedown/pagedown/Markdown.Editor.js",
             "static/mezzanine_pagedown/pagedown/wmd-buttons.png",
+            "static/mezzanine_pagedown/pagedown/LICENSE.txt",
             "static/mezzanine_pagedown/css/*",
         ]
     },
