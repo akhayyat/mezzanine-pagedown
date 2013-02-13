@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 import os
 if os.path.exists("README.txt"):
@@ -16,14 +16,13 @@ setup(
     author_email = "akhayyat@gmail.com",
     license = "BSD",
     url = "https://bitbucket.org/akhayyat/mezzanine-pagedown",
+    setup_requires=("setuptools"),
     install_requires=(
         "setuptools",
         "filebrowser_safe >= 0.2.13",
         "mezzanine >= 1.3.0",
         "markdown",),
-    packages = [
-        "mezzanine_pagedown",
-    ],
+    packages = find_packages(),
     package_data = {
         "mezzanine_pagedown": [
             "templates/mezzanine_pagedown/*.html",
