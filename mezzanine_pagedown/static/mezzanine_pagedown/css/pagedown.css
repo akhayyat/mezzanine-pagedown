@@ -96,7 +96,8 @@
     background-color: #F5F5F5;
 }
 
-#wmd-media-library #header {
+#media-library-popup .object-tools,
+#media-library-popup #changelist-filter {
     display: none;
 }
 
