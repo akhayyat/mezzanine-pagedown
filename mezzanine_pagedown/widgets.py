@@ -9,7 +9,10 @@ from mezzanine.conf import settings
 
 class PageDownWidget(forms.Textarea):
     """
-    Widget providing Markdown preview using PageDown JavaScript
+    Widget providing Markdown editor using PageDown JavaScript, and live
+    preview.
+    Live preview can be generated client-side using PageDown, or
+    server-side using python-markdown.
     """
     class Media:
         css = {'all': (
@@ -20,7 +23,8 @@ class PageDownWidget(forms.Textarea):
               'mezzanine_pagedown/pagedown/Markdown.Editor.js',
               'mezzanine/js/%s' % settings.JQUERY_FILENAME,
               'mezzanine/js/jquery-ui-1.9.1.custom.min.js',
-              'filebrowser/js/filebrowser-popup.js',)
+              'filebrowser/js/filebrowser-popup.js',
+              'mezzanine_pagedown/js/jquery.ba-throttle-debounce.min.js')
 
     def __init__(self, template=None, *args, **kwargs):
         self.template = template or 'mezzanine_pagedown/editor.html'
@@ -36,6 +40,7 @@ class PageDownWidget(forms.Textarea):
             'final_attrs': flatatt(final_attrs),
             'value': conditional_escape(force_unicode(value)),
             'id': final_id,
+            'server_side_preview': settings.PAGEDOWN_SERVER_SIDE_PREVIEW,
         }))
 
 class PlainWidget(forms.Textarea):

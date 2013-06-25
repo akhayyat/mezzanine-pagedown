@@ -3,13 +3,31 @@
     <div id="wmd-button-bar-{{ id }}"></div>
     <textarea id="wmd-input-{{ id }}" class="wmd-input" {{ final_attrs|safe }}>{{ value }}</textarea>
   </div>
+  {% if server_side_preview %}
+  <div id="server-preview-{{ id }}" class="wmd-preview"></div>
+  {% else %}
   <div id="wmd-preview-{{ id }}" class="wmd-panel wmd-preview"></div>
+  {% endif %}
   <script type="text/javascript">
     (function () {
-    var converter_{{ id }} = Markdown.getSanitizingConverter();
-    var editor_{{ id }} = new Markdown.Editor(converter_{{ id }}, "-{{ id }}");
-    editor_{{ id }}.hooks.set("insertImageDialog", browseMediaLibrary);
-    editor_{{ id }}.run();
+      var converter_{{ id }} = Markdown.getSanitizingConverter();
+      var editor_{{ id }} = new Markdown.Editor(converter_{{ id }}, "-{{ id }}");
+      editor_{{ id }}.hooks.set("insertImageDialog", browseMediaLibrary);
+      editor_{{ id }}.run();
+
+      preview = function() {
+        $.post('/pagedown/preview/',
+          {text:$('#wmd-input-{{ id }}').val()},
+          function(data,status) {
+            $('#server-preview-{{ id }}').html(data);
+        });
+      };
+      // update the preview on textarea input
+      $('#wmd-input-{{ id }}').on('input onpropertychange', $.debounce(250,preview));
+      // update the preview on pagedown editor button clicks
+      $('#wmd-button-bar-{{ id }}').on('click', preview);
+      // initial preview on loading the page
+      $(document).ready(preview);
     })();
   </script>
 </div>
