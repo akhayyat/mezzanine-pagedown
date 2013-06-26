@@ -1,3 +1,5 @@
+from mezzanine.conf import settings
+
 from markdown import markdown
 from bleach import clean
 
@@ -30,3 +32,11 @@ def extra(content):
     """
     return _clean(markdown(content, ['extra',]))
 
+
+def custom(content):
+    """
+    Renders content using markdown with the extensions listed in
+    ``settings.PAGEDOWN_MARKDOWN_EXTENSIONS``.
+    """
+    return _clean(markdown(content,
+            extensions=settings.PAGEDOWN_MARKDOWN_EXTENSIONS))
