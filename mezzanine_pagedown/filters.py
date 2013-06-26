@@ -24,3 +24,9 @@ def plain(content):
     return _clean(markdown(content))
 
 
+def extra(content):
+    """
+    Renders content using markdown extra.
+    """
+    return _clean(markdown(content, ['extra',]))
+
