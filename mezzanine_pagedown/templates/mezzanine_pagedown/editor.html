@@ -14,7 +14,7 @@
       var editor_{{ id }} = new Markdown.Editor(converter_{{ id }}, "-{{ id }}");
       editor_{{ id }}.hooks.set("insertImageDialog", browseMediaLibrary);
       editor_{{ id }}.run();
-
+      {% if server_side_preview %}
       preview = function() {
         $.post('/pagedown/preview/',
           {text:$('#wmd-input-{{ id }}').val()},
@@ -28,6 +28,7 @@
       $('#wmd-button-bar-{{ id }}').on('click', preview);
       // initial preview on loading the page
       $(document).ready(preview);
+      {% endif %}
     })();
   </script>
 </div>
