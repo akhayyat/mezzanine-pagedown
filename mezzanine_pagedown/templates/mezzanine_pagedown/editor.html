@@ -16,7 +16,7 @@
       editor_{{ id }}.run();
       {% if server_side_preview %}
       preview = function() {
-        $.post('/pagedown/preview/',
+        $.post('{% url 'preview' %}',
           {text:$('#wmd-input-{{ id }}').val()},
           function(data,status) {
             $('#server-preview-{{ id }}').html(data);
