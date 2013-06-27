@@ -9,7 +9,7 @@ else:
 
 setup(
     name = "mezzanine-pagedown",
-    version = "0.3",
+    version = "0.5",
     description = "PageDown rich text widget for Mezzanine",
     long_description = readme.read(),
     author = "Ahmad Khayyat",
@@ -21,7 +21,8 @@ setup(
         "setuptools",
         "filebrowser_safe >= 0.2.13",
         "mezzanine >= 1.3.0",
-        "markdown",),
+        "markdown",
+        "bleach",),
     packages = find_packages(),
     package_data = {
         "mezzanine_pagedown": [
@@ -32,6 +33,7 @@ setup(
             "static/mezzanine_pagedown/pagedown/wmd-buttons.png",
             "static/mezzanine_pagedown/pagedown/LICENSE.txt",
             "static/mezzanine_pagedown/css/*",
+            "static/mezzanine_pagedown/js/*",
         ]
     },
     classifiers=[
