@@ -83,12 +83,25 @@ How to Use
     `RICHTEXT_ALLOWED_TAGS`, `RICHTEXT_ALLOWED_ATTRIBUTES`, and
     `RICHTEXT_ALLOWED_STYLES` settings.
 
- 6. (Optional): Enable server-side live previews in the editor.
+ 6. (Optional): Server-side previews:
 
-        PAGEDOWN_SERVER_SIDE_PREVIEW = True
+     - In `settings.py`, enable server-side live previews in the editor:
 
-    By default (`False`), previews are generated client-side using
-    PageDown's previewer.
+            PAGEDOWN_SERVER_SIDE_PREVIEW = True
+
+       By default (`False`), previews are generated client-side using
+       PageDown's previewer.
+
+     - In `urls.py`, enable the preview URL:
+
+            import mezzanine_pagedown.urls
+
+       Then add the following line to `urlpatterns`:
+
+            ("^pagedown/", include(mezzanine_pagedown.urls)),
+
+       In this case, the preview URL is `/pagedown/preview/`. You can
+       replace `"^pagedown/"` with your own path.
 
  7. (Optional): Set enabled extensions. Requires the `custom` filter:
 
