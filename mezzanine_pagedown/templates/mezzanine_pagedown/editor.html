@@ -15,14 +15,22 @@
       editor_{{ id }}.hooks.set("insertImageDialog", browseMediaLibrary);
       editor_{{ id }}.run();
 
+      {% if server_side_preview %}
+      preview_{{ id }} = '#server-preview-{{ id }}';
+      {% else %}
+      preview_{{ id }} = '#wmd-preview-{{ id }}';
+      {% endif %}
+
       // resize preview along with textarea
       $('#wmd-input-{{ id }}').on('mouseup', function() {
-        {% if server_side_preview %}
-        $('#server-preview-{{ id }}')
-        {% else %}
-        $('#wmd-preview-{{ id }}')
-        {% endif %}
-           .outerHeight($('#wmd-input-{{ id }}').outerHeight());
+        $(preview_{{ id }}).outerHeight($('#wmd-input-{{ id }}').outerHeight());
+      });
+
+      // scroll preview along with textarea
+      $('#wmd-input-{{ id }}').on('scroll', function() {
+        $(preview_{{ id }}).scrollTop(
+          $('#wmd-input-{{ id }}').scrollTop() / $('#wmd-input-{{ id }}')[0].scrollHeight *
+            $(preview_{{ id }})[0].scrollHeight);
       });
 
       {% if server_side_preview %}
