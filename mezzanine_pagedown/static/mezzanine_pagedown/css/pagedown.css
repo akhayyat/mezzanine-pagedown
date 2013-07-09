@@ -1,13 +1,27 @@
 .wmd-wrapper {
     display: inline-block;
+    width: 1000px;
 }
 
-.wmd-input { height: 25em; }
+.wmd-panel {
+    width: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wmd-input {
+    height: 394px;
+    width: 492px;
+    resize: vertical;
+}
 
 .wmd-preview
 {
-    width: 678px;
-    margin-top: 15px;
+    display: inline-block;
+    vertical-align: top;
+    width: 474px;
+    height: 400px;
+    margin-top: 30px;
     padding: 0 10px;
     background-color: #fafafa;
     font-size: 100%;
@@ -37,7 +51,7 @@
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 0px;
     height: 20px;
 }
@@ -112,8 +126,8 @@
     font-weight:normal;
     color:#111;
     line-height:1em;
-    margin-bottom: 0.75em;
     padding: 0;
+    margin-top: 12px;
     background: none;
 }
 .wmd-preview h4,.wmd-preview h5,.wmd-preview h6{ font-weight: bold; }
@@ -185,3 +199,4 @@
 
 .wmd-preview table { border-collapse: collapse; border-spacing: 0; }
 .wmd-preview td { vertical-align: top; }
+

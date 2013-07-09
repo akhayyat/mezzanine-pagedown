@@ -14,7 +14,19 @@
       var editor_{{ id }} = new Markdown.Editor(converter_{{ id }}, "-{{ id }}");
       editor_{{ id }}.hooks.set("insertImageDialog", browseMediaLibrary);
       editor_{{ id }}.run();
+
+      // resize preview along with textarea
+      $('#wmd-input-{{ id }}').on('mouseup', function() {
+        {% if server_side_preview %}
+        $('#server-preview-{{ id }}')
+        {% else %}
+        $('#wmd-preview-{{ id }}')
+        {% endif %}
+           .outerHeight($('#wmd-input-{{ id }}').outerHeight());
+      });
+
       {% if server_side_preview %}
+      // server-side preview
       preview = function() {
         $.post('{% url 'preview' %}',
           {text:$('#wmd-input-{{ id }}').val()},
