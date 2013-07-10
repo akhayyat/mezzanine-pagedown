@@ -201,3 +201,17 @@
 .wmd-preview table { border-collapse: collapse; border-spacing: 0; }
 .wmd-preview td { vertical-align: top; }
 
+/* RTL */
+
+html[dir="rtl"] .wmd-preview ul,
+html[dir="rtl"] .wmd-preview ol,
+html[dir="rtl"] .wmd-preview dd {
+    padding: 0 2em 0 0 !important;
+}
+
+html[dir="rtl"] .wmd-preview blockquote{
+    padding-left: 0;
+    padding-right: 1em;
+}
+
+pre { direction: ltr; }
