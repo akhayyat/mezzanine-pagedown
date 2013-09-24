@@ -1,11 +1,7 @@
 from django.http import HttpResponse
 from django.views.generic import View
 
-from mezzanine.conf import settings
-from mezzanine.utils.importing import import_dotted_path
-
-
-render = import_dotted_path(settings.RICHTEXT_FILTER)
+from mezzanine.core.templatetags.mezzanine_tags import richtext_filters
 
 
 class MarkupPreview(View):
@@ -17,4 +13,4 @@ class MarkupPreview(View):
 
     def post(self, request, *args, **kwargs):
         text = self.request.POST.get('text', u"")
-        return HttpResponse(render(text), content_type='text/html')
+        return HttpResponse(richtext_filters(text), content_type='text/html')
