@@ -59,7 +59,7 @@ How to Use
 
  4. Configure Mezzanine to use one of the provided rich text filters
     for rendering markdown content. In `settings.py`, set
-    `RICHTEXT_FILTER` to:
+    `RICHTEXT_FILTERS` to include one of the following:
 
      - `'mezzanine_pagedown.filters.plain'` to use plain Markdown
        syntax with no extensions.
@@ -105,7 +105,7 @@ How to Use
 
  7. (Optional): Set enabled extensions. Requires the `custom` filter:
 
-        RICHTEXT_FILTER = 'mezzanine_pagedown.filters.custom'
+        RICHTEXT_FILTERS = ['mezzanine_pagedown.filters.custom']
         PAGEDOWN_MARKDOWN_EXTENSIONS = ('extra','codehilite','toc')
 
     To use a [custom extension][11], import it and include an instance
