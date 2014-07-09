@@ -25,16 +25,16 @@ class Command(BaseCommand):
 
         if options['all_styles']:
             for scheme in get_all_styles():
-                print HtmlFormatter(style=scheme)\
-                .get_style_defs('.%s .codehilite' % scheme)
+                print(HtmlFormatter(style=scheme).get_style_defs(
+                    '.%s .codehilite' % scheme))
             # generated all styles, done and done
             sys.exit(0)
 
         if not scheme:
-            print """
+            print("""
 Usage: ./manage.py pygments_styles <scheme_name>
 Available color schemes:
-""" + '\n'.join(["  %s" % name for name in get_all_styles()])
+""" + '\n'.join(["  %s" % name for name in get_all_styles()]))
         else:
             try:
                 assert(scheme in list(get_all_styles()))
@@ -44,5 +44,5 @@ Available color schemes:
                                    ' schemes on your system:\n' +
                                    '\n'.join(["  %s" % name for name in \
                                               get_all_styles()]))
-            print HtmlFormatter(style=scheme).get_style_defs('.codehilite')
+            print(HtmlFormatter(style=scheme).get_style_defs('.codehilite'))
             sys.exit(0)

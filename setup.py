@@ -4,7 +4,7 @@ import os
 if os.path.exists("README.txt"):
     readme = open("README.txt")
 else:
-    print "Warning: using markdown README"
+    print("Warning: using markdown README")
     readme = open("README.md")
 
 setup(
