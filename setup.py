@@ -9,7 +9,7 @@ else:
 
 setup(
     name = "mezzanine-pagedown",
-    version = "0.6",
+    version = "0.7",
     description = "PageDown rich text widget for Mezzanine",
     long_description = readme.read(),
     author = "Ahmad Khayyat",
