@@ -34,7 +34,7 @@ class PageDownWidget(forms.Textarea):
     def render(self, name, value, attrs={}):
         if value is None: value = ''
         final_attrs = self.build_attrs(attrs, name=name)
-        final_id = final_attrs['id']
+        final_id = final_attrs['id'].replace('-', '_')
         del final_attrs['id']
         return mark_safe(render_to_string(self.template, {
             'final_attrs': flatatt(final_attrs),
