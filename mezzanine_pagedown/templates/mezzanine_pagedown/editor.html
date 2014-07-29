@@ -9,7 +9,7 @@
   <div id="wmd-preview-{{ id }}" class="wmd-panel wmd-preview"></div>
   {% endif %}
   <script type="text/javascript">
-    (function () {
+    $(document).ready(function () {
       var converter_{{ id }} = Markdown.getSanitizingConverter();
       var editor_{{ id }} = new Markdown.Editor(converter_{{ id }}, "-{{ id }}");
       editor_{{ id }}.hooks.set("insertImageDialog", browseMediaLibrary);
@@ -49,6 +49,6 @@
       // initial preview on loading the page
       $(document).ready(preview);
       {% endif %}
-    })();
+    });
   </script>
 </div>
