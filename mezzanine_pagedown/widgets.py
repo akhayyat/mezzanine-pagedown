@@ -24,7 +24,8 @@ class PageDownWidget(forms.Textarea):
               'mezzanine/js/%s' % settings.JQUERY_FILENAME,
               'mezzanine/js/jquery-ui-1.9.1.custom.min.js',
               'filebrowser/js/filebrowser-popup.js',
-              'mezzanine_pagedown/js/jquery.ba-throttle-debounce.min.js')
+              'mezzanine_pagedown/js/jquery.ba-throttle-debounce.min.js',
+              'mezzanine_pagedown/js/jquery.cookie.js')
 
     def __init__(self, template=None, *args, **kwargs):
         self.template = template or 'mezzanine_pagedown/editor.html'
