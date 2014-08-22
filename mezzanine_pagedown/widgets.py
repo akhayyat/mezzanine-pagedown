@@ -2,7 +2,7 @@ from django import forms
 from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
 from django.utils.html import conditional_escape
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.forms.util import flatatt
 
 from mezzanine.conf import settings
@@ -39,7 +39,7 @@ class PageDownWidget(forms.Textarea):
         del final_attrs['id']
         return mark_safe(render_to_string(self.template, {
             'final_attrs': flatatt(final_attrs),
-            'value': conditional_escape(force_unicode(value)),
+            'value': conditional_escape(force_text(value)),
             'id': final_id,
             'server_side_preview': settings.PAGEDOWN_SERVER_SIDE_PREVIEW,
         }))
