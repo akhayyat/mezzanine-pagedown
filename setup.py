@@ -9,7 +9,7 @@ else:
 
 setup(
     name = "mezzanine-pagedown",
-    version = "0.8",
+    version = "0.9",
     description = "PageDown rich text widget for Mezzanine",
     long_description = readme.read(),
     author = "Ahmad Khayyat",
@@ -20,7 +20,7 @@ setup(
     install_requires=(
         "setuptools",
         "filebrowser_safe >= 0.2.13",
-        "mezzanine >= 1.3.0",
+        "mezzanine >= 1.4.4",
         "markdown",
         "bleach",),
     packages = find_packages(),
