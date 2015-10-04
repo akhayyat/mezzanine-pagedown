@@ -22,7 +22,7 @@ class PageDownWidget(forms.Textarea):
               'mezzanine_pagedown/pagedown/Markdown.Sanitizer.js',
               'mezzanine_pagedown/pagedown/Markdown.Editor.js',
               'mezzanine/js/%s' % settings.JQUERY_FILENAME,
-              'mezzanine/js/jquery-ui-1.9.1.custom.min.js',
+              'mezzanine/js/%s' % settings.JQUERY_UI_FILENAME,
               'filebrowser/js/filebrowser-popup.js',
               'mezzanine_pagedown/js/jquery.ba-throttle-debounce.min.js',
               'mezzanine_pagedown/js/jquery.cookie.js')

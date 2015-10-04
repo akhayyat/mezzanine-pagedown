@@ -34,17 +34,17 @@
       });
 
       {% if server_side_preview %}
-      
+
       // We need to submit our csrftoken with the request
       // otherwise Django will not permit us to post.
       // See https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#ajax .
       var csrftoken = $.cookie('csrftoken');
-      
+
       function csrfSafeMethod(method) {
           // these HTTP methods do not require CSRF protection
           return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
       }
-      
+
       $.ajaxSetup({
           beforeSend: function(xhr, settings) {
               if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -52,7 +52,7 @@
               }
           }
       });
-      
+
       // server-side preview
       preview = function() {
         $.post('{% url 'preview' %}',
