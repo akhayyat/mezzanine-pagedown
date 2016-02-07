@@ -3,7 +3,11 @@ from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
 from django.utils.html import conditional_escape
 from django.utils.encoding import force_text
-from django.forms.util import flatatt
+from django import VERSION as DJANGO_VERSION
+if DJANGO_VERSION < (1, 8):
+    from django.forms.util import flatatt
+else:
+    from django.forms.utils import flatatt
 
 from mezzanine.conf import settings
 
