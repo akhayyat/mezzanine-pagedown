@@ -39,6 +39,9 @@
       // otherwise Django will not permit us to post.
       // See https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#ajax .
       var csrftoken = $.cookie('csrftoken');
+      if (!csrftoken) {
+        csrftoken = $("input[name=csrfmiddlewaretoken]").val();
+      }
 
       function csrfSafeMethod(method) {
           // these HTTP methods do not require CSRF protection
