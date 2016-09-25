@@ -1,7 +1,5 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from .views import MarkupPreview
 
-urlpatterns = patterns('',
-    url(r'^preview/$', MarkupPreview.as_view(), name='preview'),
-)
+urlpatterns = [url(r'^preview/$', MarkupPreview.as_view(), name='preview'), ]
