@@ -12,11 +12,8 @@ else:
 
 class Command(BaseCommand):
 
-    option_list = BaseCommand.option_list + (
-        make_option('--all', dest='all_styles',
-                    action='store_true',
-                    default=False),
-    )
+    def add_arguments(self, parser):
+        parser.add_argument('--all', dest='all_styles', action='store_true')
 
     def handle(self, scheme=None, **options):
         if not PYGMENTS:
