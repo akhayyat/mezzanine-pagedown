@@ -13,9 +13,10 @@ else:
 class Command(BaseCommand):
 
     def add_arguments(self, parser):
+        parser.add_argument('scheme')
         parser.add_argument('--all', dest='all_styles', action='store_true')
 
-    def handle(self, scheme=None, **options):
+    def handle(self, *args, **options):
         if not PYGMENTS:
             raise CommandError('Unable to load pygments. '
                                'Please install pygments to use this command.')
@@ -26,6 +27,10 @@ class Command(BaseCommand):
                     '.%s .codehilite' % scheme))
             # generated all styles, done and done
             sys.exit(0)
+
+        scheme=None
+        if args:
+            scheme=args[0]
 
         if not scheme:
             print("""
