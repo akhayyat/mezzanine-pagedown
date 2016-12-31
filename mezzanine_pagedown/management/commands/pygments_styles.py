@@ -28,6 +28,7 @@ class Command(BaseCommand):
             # generated all styles, done and done
             sys.exit(0)
 
+        print args
         scheme=None
         if args:
             scheme=args[0]
