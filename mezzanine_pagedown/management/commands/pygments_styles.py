@@ -28,17 +28,15 @@ class Command(BaseCommand):
             # generated all styles, done and done
             sys.exit(0)
 
-        print args
-        scheme=None
-        if args:
-            scheme=args[0]
+        print args[0]
 
-        if not scheme:
+        if len(args) == 0:
             print("""
 Usage: ./manage.py pygments_styles <scheme_name>
 Available color schemes:
 """ + '\n'.join(["  %s" % name for name in get_all_styles()]))
         else:
+            scheme=args[0]
             try:
                 assert(scheme in list(get_all_styles()))
             except AssertionError:
