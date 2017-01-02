@@ -21,6 +21,9 @@ class Command(BaseCommand):
             raise CommandError('Unable to load pygments. '
                                'Please install pygments to use this command.')
 
+        print args
+        print options
+
         if options['all_styles']:
             for scheme in get_all_styles():
                 print(HtmlFormatter(style=scheme).get_style_defs(
@@ -28,7 +31,6 @@ class Command(BaseCommand):
             # generated all styles, done and done
             sys.exit(0)
 
-        print args[0]
 
         if len(args) == 0:
             print("""
