@@ -14,7 +14,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('--scheme', dest='scheme_name', type=str, help="""Available color schemes:
-""" + '\n'.join(["  %s" % name for name in get_all_styles()])))
+""" + '\n'.join(["  %s" % name for name in get_all_styles()]))
 
         parser.add_argument('--all', dest='all_styles', action='store_true')
 
