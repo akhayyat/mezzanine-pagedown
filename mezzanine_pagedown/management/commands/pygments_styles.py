@@ -13,9 +13,12 @@ else:
 class Command(BaseCommand):
 
     def add_arguments(self, parser):
+        parser.add_argument('--scheme', dest='scheme_name', type=str, help="""Available color schemes:
+""" + '\n'.join(["  %s" % name for name in get_all_styles()]))
+
         parser.add_argument('--all', dest='all_styles', action='store_true')
 
-    def handle(self, scheme=None, **options):
+    def handle(self, *args, **options):
         if not PYGMENTS:
             raise CommandError('Unable to load pygments. '
                                'Please install pygments to use this command.')
@@ -27,12 +30,9 @@ class Command(BaseCommand):
             # generated all styles, done and done
             sys.exit(0)
 
-        if not scheme:
-            print("""
-Usage: ./manage.py pygments_styles <scheme_name>
-Available color schemes:
-""" + '\n'.join(["  %s" % name for name in get_all_styles()]))
-        else:
+
+        if options['scheme_name']:
+            scheme=options['scheme_name']
             try:
                 assert(scheme in list(get_all_styles()))
             except AssertionError:
