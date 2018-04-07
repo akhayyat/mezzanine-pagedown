@@ -1,11 +1,15 @@
 from setuptools import setup, find_packages
-
+import pypandoc
 import os
-if os.path.exists("README.txt"):
+
+try:
+    rst = pypandoc.convert("README.md", "rst")
+    f = open("README.txt","w")
+    f.write(rst)
     readme = open("README.txt")
-else:
-    print("Warning: using markdown README")
-    readme = open("README.md")
+except:
+    sys.stderr.write('Error converting README from markdown to restructuredText')
+    sys.exit(1)
 
 setup(
     name = "mezzanine-pagedown",
