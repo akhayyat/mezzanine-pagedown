@@ -58,6 +58,10 @@
     height: 20px;
 }
 
+#content ul.wmd-button-row {
+    display: block;
+}
+
 .wmd-button {
     width: 20px;
     height: 20px;
