@@ -36,7 +36,7 @@ class PageDownWidget(forms.Textarea):
 
         super(PageDownWidget, self).__init__(*args, **kwargs)
 
-    def render(self, name, value, attrs={}):
+    def render(self, name, value, attrs={}, renderer=None):
         if value is None: value = ''
         final_attrs = self.build_attrs(attrs, extra_attrs=dict(name=name))
         final_id = ''
